@@ -4,14 +4,14 @@ note:
 
 > 思路：国内域名用dnsmasq解析，国外域名用pdnsd解析
 
-* 1. 开启ipv4转发
+* 1 开启ipv4转发
 ```
 vi /etc/sysctl.conf
 # 将net.ipv4.ip_forward=0更改为net.ipv4.ip_forward=1
 sysctl -p
 ```
 
-* 2. 安装和配置dnsmasq
+* 2  安装和配置dnsmasq
   -安装
   ```
   sudo apt instal dnsmasq ipset -y
@@ -94,6 +94,10 @@ sysctl -p
 	    uptest=none;
 	}
 
+  ```
+  修改 /etc/default/pdnsd
+  ```
+  START_DAEMON=yes
   ```
 
   - DNS测试
